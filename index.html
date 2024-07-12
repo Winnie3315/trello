@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trello Clone</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="logo">Trello</div>
+            <div class="menu-item">Рабочие пространства</div>
+            <div class="menu-item">Недавние</div>
+            <div class="menu-item">В избранном</div>
+            <div class="menu-item">Шаблоны</div>
+        </div>
+        <div class="header-right">
+            <button class="add-card-btn">Создать</button>
+        </div>
+    </header>
+    <main>
+        <div class="board-header">
+            <div class="board-title">desk</div>
+            <button class="board-options-btn">⚙️ По доске</button>
+        </div>
+        <div class="board">
+            <div class="list">
+                <div class="list-header todo" data-status="Todo">Todos</div>
+                
+            </div>
+            <div class="list">
+                <div class="list-header in-progress" data-status="In process">In process</div>
+                
+            </div>
+            <div class="list">
+                <div class="list-header done" data-status="Done">Completed</div>
+                
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- <div id="modal-column" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Add New Column</h2>
+            <form name="form-todo">
+                <input type="text" id="columnName" placeholder="Column Name">
+                <button id="add-column-btn">Create</button>
+            </form>
+        </div>
+    </div> -->
+
+    <div id="modal-task" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Add New task</h2>
+            <form name="form-task" class="form">
+                <input type="text" id="task" placeholder="task name">
+                <input type="text" id="description" placeholder="task description">
+                <select name="status" id="status">
+                    <option value="Todos">Todos</option>
+                    <option value="In progress">In progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+                <button id="add-task-btn">Create</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
