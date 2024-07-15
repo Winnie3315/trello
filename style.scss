@@ -1,0 +1,325 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #752B5C;
+  color: white;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #2D2D2D;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-left .logo {
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+.header-left .menu-item {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.create-btn {
+  background-color: #0079BF;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+main {
+  padding: 20px;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.board-title {
+  font-size: 24px;
+}
+
+.board-options-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.board {
+  display: flex;
+  align-items: flex-start;
+}
+
+.list {
+  background-color: #3B3B3B;
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+  width: 200px;
+  .container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+  }
+}
+
+.list-header {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card {
+  background-color: #2D2D2D;
+  padding: 10px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.add-card-btn, .add-list-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.add-list-btn {
+  background-color: #6C6C6C;
+  padding: 10px;
+  border-radius: 3px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #3f2249;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 5px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#columnName {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+#createColumn {
+  padding: 10px;
+  background-color: #5d2a64;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.form{
+  display: flex;
+  
+  flex-direction: column;
+}
+.hovered{
+  backdrop-filter: blur(2px);
+  border: 2px dashed orange;
+}
+.hide{
+  display: none;
+}
+
+$trashColor1: #95afc0;
+$trashColor2: #535c68;
+$trashColor3: #dff9fb;
+$transition: all 0.2s ease-in-out;
+
+
+
+.trash-box {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: -100px;
+  right: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease, bottom 0.3s ease;
+
+  &.visible {
+    opacity: 1;
+    bottom: 20px;
+  }
+
+  &:hover .trash-top {
+    transform: translate(-50%, -15%) rotate(-20deg);
+  }
+
+  &:hover .trash-btm {
+    transform: translate(-50%, -100%) rotate(5deg);
+  }
+
+  &:hover .trash {
+    top: 50%;
+    transform: translate(-42%, -50%) rotate(35deg);
+  }
+
+  .trash-top {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -15%);
+    width: 80%;
+    height: 15%;
+    background: $trashColor1;
+    border-radius: 5px;
+    transform-origin: left bottom;
+    transition: $transition;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 95%;
+      left: 50%;
+      transform: translate(-50%);
+      width: 30%;
+      height: 80%;
+      background: inherit;
+      border-radius: 5px 5px 0 0;
+    }
+  }
+
+  .trash-btm {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    width: 70%;
+    height: 65%;
+    background: $trashColor1;
+    border-radius: 5px;
+    transform-origin: left 70%;
+    transition: $transition;
+
+    .trash-lines {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      height: 80%;
+      display: flex;
+      justify-content: space-around;
+
+      .trash-line {
+        width: 20%;
+        height: 100%;
+        background: darken($trashColor1, 10%);
+        border-radius: 3px;
+      }
+    }
+  }
+
+  .trash {
+    position: absolute;
+    top: 80%;
+    left: 38%;
+    transform: translate(-38%, -80%) rotate(35deg);
+    width: 40%;
+    height: 40%;
+    background: $trashColor3;
+    border-radius: 2px;
+    transition: $transition;
+
+    &::before {
+      content: "";
+      position: absolute;
+      transform: translate(30%, -20%) rotate(25deg);
+      width: 100%;
+      height: 100%;
+      background: darken($trashColor3, 10%);
+      border-radius: 2px;
+    }
+  }
+}
+
+
+input[type="text"], select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+input[type="text"]:focus, select:focus {
+  border-color: #95afc0;
+}
+
+#add-task-btn {
+  width: 100%;
+  padding: 10px;
+  background: #535c68;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#add-task-btn:hover {
+  background: #404854;
+}

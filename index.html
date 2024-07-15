@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trello Clone</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.scss">
 </head>
 <body>
     <header>
@@ -26,16 +26,16 @@
         </div>
         <div class="board">
             <div class="list">
-                <div class="list-header todo" data-status="Todo">Todos</div>
-                
+                <div class="list-header todo" >Todos</div>
+                <div class="container" data-status="0"></div>
             </div>
             <div class="list">
-                <div class="list-header in-progress" data-status="In process">In process</div>
-                
+                <div class="list-header in-progress" >In process</div>
+                <div class="container" data-status="1"></div>
             </div>
             <div class="list">
-                <div class="list-header done" data-status="Done">Completed</div>
-                
+                <div class="list-header done">Completed</div>
+                <div class="container" data-status="2"></div>
             </div>
             
         </div>
@@ -57,18 +57,29 @@
             <span class="close-btn">&times;</span>
             <h2>Add New task</h2>
             <form name="form-task" class="form">
-                <input type="text" id="task" placeholder="task name">
-                <input type="text" id="description" placeholder="task description">
+                <input type="text" id="task" name="title" placeholder="task name">
+                <input type="text" id="description" name="description" placeholder="task description">
                 <select name="status" id="status">
-                    <option value="Todos">Todos</option>
-                    <option value="In progress">In progress</option>
-                    <option value="Completed">Completed</option>
+                    <option value="0">Todos</option>
+                    <option value="1">In progresss</option>
+                    <option value="2">Completed</option>
                 </select>
                 <button id="add-task-btn">Create</button>
             </form>
         </div>
     </div>
 
+    <div id="trash-can" class="trash-box">
+        <div class="trash"></div>
+        <div class="trash-top"></div>
+        <div class="trash-btm">
+          <div class="trash-lines">
+            <div class="trash-line"></div>
+            <div class="trash-line"></div>
+          </div>
+        </div>
+      </div>
+      
     <script type="module" src="./main.js"></script>
 </body>
 </html>
