@@ -9,6 +9,7 @@ const formTask = document.forms.namedItem("form-task")
 const containers = document.querySelectorAll("[data-status]")
 const trashCan = document.querySelector("#trash-can");
 const trashCanLid = document.querySelector(".trash-top");
+const musorka = document.querySelector(".musorka");
 
 addTaskBtn.onclick = () => {
     modalTask.style.display = "block";
@@ -111,4 +112,5 @@ trashCan.ondrop = async (e) => {
 
     trashCan.classList.remove("visible");
     trashCan.querySelector(".trash-top").style.transform = "translate(-50%, -15%)";
+    musorka.play()
 };
