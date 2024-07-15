@@ -45,6 +45,7 @@ formTask.onsubmit = async (e) => {
             if (todo.status === 200 || todo.status === 201) {
                 reload(todo.data, Task, containers)
                 console.log(res.data);
+                modalTask.style.display = "none";
             }
         }
     }
